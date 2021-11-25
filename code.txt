@@ -1,0 +1,20 @@
+ form = AddToCartForm(request.POST)
+        addons = request.POST['menu_addons']
+        order_items = {
+            'items' : []
+        }
+     
+        items = request.POST.getlist('items[]')
+        for item in items:
+            boxes = Menu_addons.objects.get(pk__contains=int(item))
+            item_data = {
+                'id' : boxes.pk,
+                'name' : boxes.name,
+                'price' : boxes.price,
+            }
+            order_items['items'].append(item_data)
+
+
+
+             quantity = form.cleaned_data['quantity']
+            cart.add(product_id=product.id,  quantity=quantity,update_quantity=False)

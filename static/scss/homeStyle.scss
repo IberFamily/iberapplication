@@ -1,0 +1,134 @@
+@import './colors';
+@import './functions';
+
+.headerS{
+    background-image: url(../images/background.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+ 
+    @include grid;
+    width: 100vw;
+    height: 80vh;
+    .overlay{
+        width: 100vw;
+        height: 80vh;
+        background:$backgroundOverlay;
+        @include grid;
+        padding: 10% 0;
+        h1{
+            color: $white;
+            font-size: 5vw;
+            font-weight: 900;
+            text-shadow: 3px 3px 3px $black;
+         
+        }
+       
+        input{
+            width:30vw;
+            height: 5vh;
+            background: none;
+            border: none;
+            inline-size: none;
+         
+            border-bottom:0.4vh solid $white;
+            color:$white;
+            font-size: 2vw;
+            
+        }
+        .button{
+            margin-left: 2vw;
+            width:10vw;
+            height: 5vh;
+            transition: 0.2s ease-in-out;
+            &:hover{
+                background: $orange;
+            }
+        }
+    }
+  }
+  // side arrow and message iframe icons
+  .profileLink{
+    color: $orange;
+    z-index: 111111111111111111111111111111111111111111111111111111111111111111112;
+    position: fixed; 
+    margin-top:72.4vh;     
+    transition: 0.2s ease-in-out;
+    font-size: 4vw;
+   }
+   .profileLink:hover{
+     transform: scale(1.2);
+    color: $gray;
+   }
+   .profileLink1{
+    color: $gray;
+    z-index: 111111111111111111111111111111111111111111111111111111111111111111112;
+    position: fixed; 
+    margin-top:85vh;     
+    margin-left:3vh;     
+    transition: 0.2s ease-in-out;
+    font-size: 2vw !important;
+   }
+   .profileLink1:hover{
+     transform: scale(1.2);
+     color:  $orange;
+   }
+   .profileLink3{
+     margin-left: 5vw;
+   }
+   // END sid arrow and message iframe icons
+   // messages from customer/s
+   .orders{
+    width:15vw;
+}
+    .message{
+    width:50vw;
+    }
+   // END sid arrow and message iframe icons
+// ======================================================================================= mobile
+// ======================================================================================= mobile
+// ======================================================================================= mobile
+// ======================================================================================= mobile
+// ======================================================================================= mobile
+// ======================================================================================= mobile
+// ======================================================================================= mobile
+// ======================================================================================= mobile
+
+  @media  (max-width:992px){
+    .aboutUs{
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      height: 120vh;
+    }
+.iberHeader,h1{
+      width: 80vw !important;
+      padding-top: 10vh;
+    }
+    .left{
+      display: none;
+    }
+    .right{
+      margin-top: -65vh !important;
+      margin-bottom: 15vh !important;
+    }
+    .paragrafIber{
+      padding:0 2% !important;
+    }
+    .banner{
+      width: 100vw !important;
+      overflow: hidden !important;
+    }
+    .overlayBanner{
+      margin-left: 10vw !important;
+      width: 100vw !important;
+      margin:auto;
+    }
+    .heading2Banner,.heading1Banner{
+      font-size: 6vw !important;
+      text-align: center;
+    
+    }
+    .partnersIMG,img{
+      width: 50%;
+    }
+}

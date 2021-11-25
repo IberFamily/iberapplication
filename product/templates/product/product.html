@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% block title %}{{product.title}}|{% endblock %}
+{% block content %}
+
+<div class="container">
+  
+ {% if messages %}
+ {% for message in messages %}
+     <div class="notification is-toast is-success">
+           {{ message }}
+     </div>
+ {% endfor %}
+{% endif %}
+ <div class="row">
+     
+  {% if product.image %}
+  <div class="card mt-5 col-md-5 col-sm-3 ">
+      <img class="col-sm-12 col-sm-12 "  src="{{ product.image.url }}" alt="">
+ </div>
+ {% endif %}
+  <div class="container " style="padding-top:5vh;height:35vh; margin-left:5vw;">
+       <span class="is-size-1" style="font-weight: bold;" >{{ product.vendor.name }}</span>
+            <h1 class=" is-size-3 mt-3"> {{ product.title }} - {{ product.price }} Rsd. </h1>
+            <p class="is-size-5 mt-2"> {{ product.description }}</p>
+            <form  method="POST">
+              {% csrf_token %}
+          
+              <div class="field has-addons mt-5">
+                   <div class="control">   
+                    <input type="number" class="input" name="quantity" value="1">
+                  <div class="control">
+                 </div>
+                  <div class="control py-3">
+                 
+                 </div>
+                   <div class="control">
+                    <button  style="background-color: #dd4928; color:#fff; " class="button  is-uppercase">Dodaj u korpu</button>
+                 </div>
+              </div>
+            
+            </form>
+</div>
+</div>
+  <h1 class="py-5 is-size-2" style="margin-top:15vh; font-weight: bold;">Slične narudzbine</h1>
+  <div class="container d-flex" style="margin-top: 5vh; margin-bottom: 30vh;" >
+   {% if similar_products %}
+   {% for product in similar_products %}
+       {% include 'product/parts/list_item.html' %}
+   {% endfor %}
+   </div>
+  {% endif %}
+  </div>
+  </div>  
+  {% endblock %}

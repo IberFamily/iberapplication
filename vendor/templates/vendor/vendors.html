@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Vendors | {% endblock %}
+
+{% block content %}
+  
+<div class="container">
+    <h1 class="my-5 is-size-2">Svi objekti</h1>
+    <div class="columns is-multiline py-6">
+        {% for vendor in vendors %}
+            <div class="col-md-4 col-sm-12 ">
+                <div class="box ">
+                    <img class="col-md-12 col-sm-12 " src="{{ vendor.images.url }}" alt="">
+                    <h1 class="is-size-3 mt-4 mb-4"> <i class="fas fa-home "></i> {{vendor.name}}</h1>
+                    <h3 class="is-size-6 mb-2 px-6"> <i class="fas fa-map-marker-alt "></i> {{vendor.location}}</h3>
+                    <h3 class="is-size-6 mb-2 px-6"><i class="far fa-clock"></i> {{vendor.work_hours}}</h3>   
+                    <h3 class="is-size-6 mb-2 px-6"><i class="far fa-clock"></i> {{vendor.phone}}</h3>   
+ 
+                    <hr>
+                    <a href="{% url 'vendor' vendor.id %}" class="button bg-si-dark ">Pogledaj Proizvode</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

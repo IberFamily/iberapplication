@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<h1 class="is-size-3 has-text-weight-bold text-center py-6">Poruke Korisnika</h1>
+<div class="container">
+    {% for message in user_messages %}
+    <table class="table is-fullwidth mt-4">
+        <thead>
+            <tr>                       
+                <th>Poslato</th>
+                <th>Ime korisnika</th>
+                <th>E-mail korisnika</th>
+                <th>Poruka</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tbody>  
+            <tr class="testClass">
+                <td class="orders">{{ message.created_at }}</td>
+                <td class="orders">{{ message.client_name }}</td>
+                <td class="orders">{{ message.client_email }}</td>
+                <td class="message">{{ message.client_message }}</td>
+            </tr>       
+        </tbody>
+    </table>
+    {% endfor %}
+</div>
+{% endblock %}

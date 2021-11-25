@@ -1,0 +1,16 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Search | {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row-flex py-6 d-flex">
+        <h3 class="is-size-4  ">Tražena reč :</h3> <h1 class=" py-2 ml-5 has-text-weight-bold"> " {{ query }}"</h1>
+    </div>
+    <div class="columns is-multiline mb-6">
+        {% for product in products %}
+            {% include 'product/parts/list_item.html' %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

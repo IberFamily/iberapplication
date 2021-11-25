@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{% block title %}Welcome |{% endblock %}
+  
+{% block content %}
+<div class="headerS">
+    <div class="overlay">
+        <h1>IBER Donosi SVE!</h1>
+        <form method="get"  class="py-0 m-auto" action="{% url 'search' %}">
+            <div class="field has-addons">
+                <div class="control">
+                    <input type="text"  id="headerSearch" placeholder="Pretrazi..." name="query">
+                </div>
+                <div class="control">
+                    <button class="button is-dark is-uppercase">Pretraži</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--end of the header section-->
+<div class="wrapper " >
+    <!--end of the carousel-->
+<div class="container">
+    <h1 class="is-size-2 py-5 mt-6 is-uppercase py-5">Kategorije</h1>
+   
+        <div class="columns is-multiline col-sm-12 py-6">
+            {% for category in categories %}
+            <a href="{% url 'category' category.slug %}">
+                <div class="col-md-2 col-sm-12 ">
+                    <div class="box ">
+                        <img  class="col-md-12" style="width:100vw" src="{{ category.image.url }}" alt="">
+                        <a class="dropdown-item  text-center " href=""></a>
+                            <a href="{% url 'category' category.slug %}"   class="button mt-2    text-center  is-uppercase"> {{category.title}}</a>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="container ">
+        <h1 class="is-size-2 py-5">Objekti</h1>
+    </div>
+    <div class="columns is-multiline py-6">
+        {% for vendor in vendors %}
+            <div class="col-md-4 col-sm-12">
+                <div class="box m-2">
+                    <img  class="col-md-12 col-sm-12" style="width: 100vw;"  src="{{ vendor.images.url }}" alt="">
+                    <h2 class=" is-size-4 has-text-weight-bold pt-3" ><i class="fas fa-home "></i>  {{ vendor.name }}</h2>
+                    <h2 class="is-size-5 pt-2 ml-2 has-text-weight-bold"> {{ vendor.title }}</h2>
+                    <h2 class=" py-1 "><i class="fas fa-map-marker-alt  ml-2"></i> {{ vendor.location }}</h2>
+                    <h2 class=" py-1 "> <i class="far fa-clock  ml-2" ></i> {{ vendor.work_hours }}</h2>
+                    <h2 class=" py-1"><i class="fas fa-phone-alt ml-2"></i> {{ vendor.phone }}</h2>
+                     
+                    <a href="{% url 'vendor' vendor.id %}"class="button mt-3">Pogledaj Proizvode</a>
+                </div>
+            </div>
+        {% endfor %}
+   
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+{% endblock %}

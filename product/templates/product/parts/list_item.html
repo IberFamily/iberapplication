@@ -1,0 +1,11 @@
+<div class="column is-3 product-list-item">
+    <div class="box ">
+        <figure class="image is-4by3 mb-4">
+                <img src=" {{ product.image.url }} " alt="">
+        </figure>
+        <h1 class="is-size-5 mb-5" style="font-weight: bold;" ><i class="fas fa-home "></i> {{ product.vendor.name }}</h1>
+        <h2 class=" is-size-6 mb-2 mx-2"><i class="fas fa-bars mr-2 "></i>  {{  product.title }}</h2>
+        <h3 class="price is-size-6 mb-5 mx-2"><i class="fas fa-money-bill-wave mr-1"></i>  {{  product.price }} Rsd</h3>
+        <a href="{% url 'product' product.category.slug product.slug %}"  style="background-color: #dd4928; color:#fff;" class="button  is-uppercase">Naruči</a>
+    </div>
+</div>

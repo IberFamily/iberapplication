@@ -1,0 +1,24 @@
+@import './colors';
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin grid {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+@mixin space {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+html,body{
+    scroll-behavior: smooth;
+}

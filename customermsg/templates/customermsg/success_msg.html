@@ -1,0 +1,10 @@
+{% extends 'main/base.html' %}
+
+
+{% block content %}
+<img style="width: 10%; height: 20%; margin-top: 5vh; margin-left: 45%;" src="https://cdn.pixabay.com/photo/2012/04/24/16/22/check-40319_960_720.png" alt="">
+<h1 class="py-6 is-size-2 has-text-weight-bold text-center">Poruka je uspešno poslata IBER-timu</h1>
+<p class=" is-size-4 text-center">Odgovor će te dobiti u najkraćem roku na E-mail adresu koju ste ostavili u formi. </p>
+<p class="has-text-weight-bold text-center mt-6 is-size-4">Vaš IBER tim!</p>
+<a  style="margin-left: 46%;" href="{% url 'home_page' %}" class="btn btn-primary mt-6 ">Vrati se na početnu</a>
+{% endblock %}

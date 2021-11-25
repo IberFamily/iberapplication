@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="form-group py-3">
+                <h1 class="is-size-2 py-4"><strong>IBER</strong>- podrška</h1>
+                <h1 class="is-size-4 py-4">IBER tim vam stojhi na raspolaganju 24/7</h1>
+                <h1>U najkraćem roku dobićete odgovor na vašu E-mail adresu.</h1>
+                <h1 class="text-success py-3">Bitno da podatci koje ostavite budu tačni kako ne bi došlo do problema u povratnim informacijama.</h1>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+       
+        <div class="form-group py-3">
+        
+          <input type="text" name="client_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Vaše ime" required>
+        
+        </div>
+        <div class="form-group py-3">
+        
+          <input type="email" name="client_email" class="form-control" id="exampleInputPassword1" placeholder="Vaša E-mail adresa" required>
+        </div>
+        <div class="form-group py-3">
+          
+            <textarea class="form-control" name="client_message" id="exampleFormControlTextarea1" placeholder="Vaša poruka" rows="3" required></textarea>
+          </div>
+        <button type="submit" class="btn btn-primary mt-5    py-3 px-6">Pošalji</button>
+      </form>
+</div>
+
+{% endblock content %}

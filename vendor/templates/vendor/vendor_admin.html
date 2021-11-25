@@ -1,0 +1,99 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+
+<div class="container mt-4">
+    <div class="box bg-dark">
+        <h2 class="is-size-3 text-white  text-center">Porudzbine </h2>    <a class="is-size-5 text-white " href="#artikliUPonudi">-> Artikli u ponudi</a> 
+    </div>
+{% if orders %}
+{% for order in orders %}
+{% for item in order.items.all %}
+{% if item.vendor == request.user.vendor %}
+    <div class="
+    {% if item.status == 'Na Čekanju'%}bg-success
+    {% elif item.status == 'Prihvaćeno' %}bg-primary
+    {% elif item.status == 'Spremnjeno'%}bg-secondary
+    {% else %}bg-danger{% endif %} text-white   mb-2 p-4">
+        <div class="columns  is-multiline">
+            <div class="column is-6 " >
+                <h3 class="is-size-4"># / {{ order.first_name }} {{ order.last_name }}</h3>
+            </div>
+            <div class="col-md-12 px-4  col-sm-12">
+                <b>Ime:</b> {{ order.first_name }} {{ order.last_name }}<br>
+                <b>E-mail:</b> {{ order.email }}<br>
+                <b>Telefon:</b> {{ order.phone }} <br>
+                <table class="table  is-fullwidth mt-4">
+                    <thead >
+                        <tr >                       
+                            <th>Id</th>
+                            <th >Kvantitet</th>
+                            <th >Naziv Artikla</th>
+                            <th >Cena artikla</th>
+                            <th >Ukupna Cena</th>
+                            <th >Vreme </th>
+                            <th >Status </th>
+                            <th >Opcije</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tbody>  
+                        <tr class="testClass ">
+                            <td class="orders">{{ item.id }}</td>
+                            <td class="orders">{{ item.quantity }}</td>
+                            <td class="orders">{{ item.product.title }}</td>
+                            <td class="orders"> {{ item.product.price }} Rsd.</td>
+                            <td class="orders">{{ item.get_total_price }} Rsd.</td>
+                            <td class="orders">{{ order.created_at }}</td>
+                            <td class="orders has-text-weight-bold">{{ item.status }}</td>
+                            <td class="orders">
+                              
+                            <a class="btn btn-primary" href="{% url 'adminUpdate' item.pk %}"> OPCIJE</a>
+                                 
+                              
+                            </td>
+                            <td>
+                                <td>{{item.created_at}}</td>
+                            </tr>       
+                            {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
+</div>
+{% endif %}
+</div>
+<div class="container">
+<div class="box">
+    <div class="box col-md-12">
+        <h2 class="is-size-3 mb-6" id="artikliUPonudi">Artikli u ponudi</h2>
+        {% if products %}
+        <table class="table is-fullwidth">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+    {% for product in products %}
+                  <tr>
+                    <td class="py-4">{{ product.title }}</td>
+                    <td class="py-4">{{ product.price }} Rsd.</td>
+                    <td></td>
+                  </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    {% else %}
+      <p>Još niste ubacili produkte</p>
+    {% endif  %}
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

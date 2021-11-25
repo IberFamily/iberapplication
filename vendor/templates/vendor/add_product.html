@@ -1,0 +1,18 @@
+{% extends 'main/base.html' %}
+{% block content %}
+<div class="container">
+   
+    <div class="col-md-6">
+        
+    <form  method="POST" class="pb-6" enctype="multipart/form-data" >
+        {% csrf_token %}
+        {{form.as_p}}
+    <div class="field">
+        <div class="control">
+            <button class="btn btn-primary mt-5 py-3 px-6">Ubaci u bazu</button>
+        </div>
+    </div>
+    </form>
+    </div>
+</div>
+{% endblock content %}

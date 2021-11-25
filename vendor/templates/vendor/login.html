@@ -1,0 +1,29 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<div class="container">
+    <form action="#" method="post" class="col-md-6 m-auto">
+        
+        <h1 class="is-size-2 pt-6  pb-3 has-text-weight-bold">Uloguj Se</h1>
+
+        {% csrf_token %}
+        <div class="form-group mt-5 py-1">
+            <label for="exampleInputEmail1" class="has-text-weight-bold py-2">Korisničko ime</label>
+            <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+          
+          </div>
+          <div class="form-group mb-5 py-1">
+            <label for="exampleInputPassword1" class="has-text-weight-bold py-2">Lozinka</label>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+          </div>
+        
+   
+     <div class="field">
+         <div class="control">
+             <button class="btn btn-success px-6 py-2">Login</button>
+         </div>
+     </div>
+ </form>
+
+</div>
+{% endblock content %}

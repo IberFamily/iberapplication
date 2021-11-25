@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="box control has-icons-left has-icons-right">
+<form  method="POST">
+
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary py-1  px-6 mt-6">Potvrdi</button>
+ 
+    </form>
+  
+</div>
+</div>
+{% endblock content %}
