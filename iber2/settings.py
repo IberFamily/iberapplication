@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-w!d+w3()zl!lpsp8b6&fn^jj_yqu2od%4p$qz(-kd)q(1h2-8l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['iberapplication.pythonanywhere.com']
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'vendor_admin'
